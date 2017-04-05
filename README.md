@@ -1,8 +1,9 @@
 # dev-gateway
 
+> Local development cluster with [now path aliases](https://zeit.co/docs/features/path-aliases) syntax support. Allows running multiple microservices as one solid server.
+
 [![Build Status](https://travis-ci.org/dimapaloskin/dev-gateway.svg?branch=master)](https://travis-ci.org/dimapaloskin/dev-gateway)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-> Local development cluster with [now path aliases](https://zeit.co/docs/features/path-aliases) syntax support. Allows running multiple microservices as one solid server.
 
 ## Installation
 ```shell
