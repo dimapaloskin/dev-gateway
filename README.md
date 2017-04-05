@@ -89,3 +89,6 @@ npm run example
 ```
 
 You can check test server in the `test/example` directory.
+
+### Author
+[Dmitry Pavlovsky](http://palosk.in)
