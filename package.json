@@ -21,6 +21,9 @@
     "path aliases",
     "now"
   ],
+  "engines": {
+    "node": ">=6.9.0"
+  },
   "author": "Dima Pavlovsky",
   "license": "MIT",
   "dependencies": {
