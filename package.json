@@ -1,6 +1,6 @@
 {
   "name": "dev-gateway",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "bin": "bin/dev-gateway",
