@@ -1,0 +1,61 @@
+{
+  "name": "dev-gateway",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": "bin/dev-gateway",
+  "scripts": {
+    "lint": "xo",
+    "ava": "ava -v test/*.test.js",
+    "test": "xo && ava -v test/*test.js ",
+    "example": "cd test/example && ./../../bin/dev-gateway app.js"
+  },
+  "file": [
+    "bin",
+    "lib",
+    "index.js"
+	],
+  "keywords": [
+    "gateway",
+    "proxy",
+    "path aliases",
+    "now"
+  ],
+  "author": "Dima Pavlovsky",
+  "license": "MIT",
+  "dependencies": {
+    "async-exit-hook": "^1.1.2",
+    "async-sleep": "^0.1.0",
+    "async-to-gen": "^1.3.2",
+    "commander": "^2.9.0",
+    "global": "^4.3.1",
+    "http-proxy": "^1.16.2",
+    "listen-port": "^1.0.1",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.compact": "^3.0.1",
+    "lodash.flatten": "^4.4.0",
+    "ps-tree": "^1.1.0",
+    "tree-kill": "^1.1.0",
+    "wildcard-match": "^1.0.0"
+  },
+  "xo": {
+    "space": 2,
+    "extends": "prettier",
+    "rules": {
+      "unicorn/no-process-exit": [
+        0
+      ],
+      "import/no-unassigned-import": [
+        0
+      ]
+    }
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "eslint-config-prettier": "^1.5.0",
+    "get-port": "^3.0.0",
+    "micro": "^7.3.0",
+    "request-promise": "^4.2.0",
+    "xo": "^0.18.1"
+  }
+}

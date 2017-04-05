@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+const { resolve } = require('path');
+const program = require('commander');
+const cloneDeep = require('lodash.clonedeep');
+const { version } = require('./../package.json');
+const devGateway = require('./../');
+
+program
+  .version(version)
+  .option('-p, --port <port>', 'Port to listen on (3000)', parseInt)
+  .option('-h, --host <host>', 'Host to listen on (localhost)')
+  .parse(process.argv);
+
+const file = resolve(process.cwd(), program.args[0] || 'app.js');
+const cmdOpts = {
+  port: program.port,
+  host: program.host
+};
+
+const options = cloneDeep(require(file));
+options.port = cmdOpts.port || options.port || 3000;
+options.host = cmdOpts.host || options.host || 'localhost';
+
+devGateway(options);
