@@ -1,5 +1,7 @@
 # dev-gateway
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dimapaloskin/dev-gateway.svg)](https://greenkeeper.io/)
+
 > Local development cluster with [now path aliases](https://zeit.co/docs/features/path-aliases) syntax support. Allows running multiple microservices as one solid server.
 
 [![Build Status](https://travis-ci.org/dimapaloskin/dev-gateway.svg?branch=master)](https://travis-ci.org/dimapaloskin/dev-gateway)
