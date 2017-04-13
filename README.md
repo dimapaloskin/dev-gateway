@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/dimapaloskin/dev-gateway.svg?branch=master)](https://travis-ci.org/dimapaloskin/dev-gateway)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dimapaloskin/dev-gateway.svg)](https://greenkeeper.io/)
 
 ## Installation
 ```shell
