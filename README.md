@@ -93,5 +93,10 @@ npm run example
 
 You can check test server in the `test/example` directory.
 
+## Alternatives
+
+- [serve-micro-cluster](https://github.com/tylersnyder/serve-micro-cluster) - Easily start a local cluster of [micro](https://github.com/zeit/micro)-based services using a simple rules.json file. It's like Path Alias on [now](https://zeit.co/now), but for local development.
+- [micro-cluster](https://github.com/zeit/micro-cluster) - Run multiple micro servers and a front proxy at a time, with a simple configuration file.
+
 ### Author
 [Dmitry Pavlovsky](http://palosk.in)
