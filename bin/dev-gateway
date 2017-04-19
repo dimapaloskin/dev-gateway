@@ -34,6 +34,7 @@ if (cmd === 'serve') {
   devGateway(options);
 } else if (cmd === 'extract') {
   try {
+    options.host = options.host || cmdOpts.host;
     const out = extract(options, cmdOpts.dest);
     writeFileSync(resolve(cmdOpts.output), JSON.stringify(out, null, 2));
     console.log(`Rules successfully extracted`);
