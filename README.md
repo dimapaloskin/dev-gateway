@@ -79,7 +79,7 @@ Rules access the following parametres:
 
 ## Cli
 
-Run:
+**Run:**
 
 ```shell
 dev-gateway serve app.js -p 3000 -h localhost
@@ -88,7 +88,7 @@ dev-gateway serve app.js -p 3000 -h localhost
 - `-p, --port` - port
 - `-h, --host` - host
 
-Extract:
+**Extract:**
 
 ```shell
 dev-gateway extract app.js --dest example.com --output rules.json
