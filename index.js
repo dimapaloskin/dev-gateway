@@ -1,2 +1,6 @@
 require('async-to-gen/register');
-module.exports = require('./lib');
+
+module.exports = {
+  devGateway: require('./lib/'),
+  extract: require('./lib/extract')
+};

@@ -1,24 +1,48 @@
 #!/usr/bin/env node
 const { resolve } = require('path');
+const { writeFileSync } = require('fs');
 const program = require('commander');
 const cloneDeep = require('lodash.clonedeep');
 const { version } = require('./../package.json');
-const devGateway = require('./../');
+const { devGateway, extract } = require('./../');
 
 program
   .version(version)
   .option('-p, --port <port>', 'Port to listen on (3000)', parseInt)
   .option('-h, --host <host>', 'Host to listen on (localhost)')
+  .option('-d, --dest <main destination>', 'Domain name for extracted rules')
+  .option('-o, --output <output rules file>', 'Output file with extracted rules')
   .parse(process.argv);
 
-const file = resolve(process.cwd(), program.args[0] || 'app.js');
-const cmdOpts = {
-  port: program.port,
-  host: program.host
-};
+
+const file = resolve(process.cwd(), program.args[1] || program.args[0] || 'app.js');
+const cmd = program.args.length === 1 ? 'serve' : program.args[0];
 
 const options = cloneDeep(require(file));
-options.port = cmdOpts.port || options.port || 3000;
-options.host = cmdOpts.host || options.host || 'localhost';
 
-devGateway(options);
+const cmdOpts = {
+  port: program.port,
+  host: program.host,
+  dest: program.dest || options.dest,
+  output: program.output || 'rules.json'
+};
+
+if (cmd === 'serve') {
+  options.port = cmdOpts.port || options.port || 3000;
+  options.host = cmdOpts.host || options.host || 'localhost';
+
+  devGateway(options);
+} else if (cmd === 'extract') {
+  try {
+    const out = extract(options, cmdOpts.dest);
+    writeFileSync(resolve(cmdOpts.output), JSON.stringify(out, null, 2));
+    console.log(`Rules successfully extracted`);
+    process.exit(0);
+  } catch (err) {
+    console.error('Extraction error:', err);
+    process.exit(1);
+  }
+} else {
+  console.error('Unknown comand');
+  process.exit(1);
+}
