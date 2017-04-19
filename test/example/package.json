@@ -1,7 +1,6 @@
 {
   "name": "dev-gateway-example",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "dev-gateway",
@@ -11,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "micro": "^7.3.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }

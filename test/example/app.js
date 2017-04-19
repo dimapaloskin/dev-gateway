@@ -5,6 +5,7 @@ module.exports = {
     dest: 'auth.api.localhost',
     run: 'micro index.js',
     cwd: './auth',
+    deploy: 'now',
     env: {
       SECRET_TOKEN: 'kittens'
     },
@@ -14,6 +15,7 @@ module.exports = {
     dest: 'accounts.api.localhost',
     method: ['GET', 'POST'],
     run: 'cd ./accounts && micro index.js',
+    deploy: 'echo "deploy"',
     debug: true
   }, {
     pathname: '/api/entries/*',

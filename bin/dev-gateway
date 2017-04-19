@@ -4,7 +4,7 @@ const { writeFileSync } = require('fs');
 const program = require('commander');
 const cloneDeep = require('lodash.clonedeep');
 const { version } = require('./../package.json');
-const { devGateway, extract } = require('./../');
+const { devGateway, extract, deploy } = require('./../');
 
 program
   .version(version)
@@ -12,6 +12,7 @@ program
   .option('-h, --host <host>', 'Host to listen on (localhost)')
   .option('-d, --dest <main destination>', 'Domain name for extracted rules')
   .option('-o, --output <output rules file>', 'Output file with extracted rules')
+  .option('-a, --all', 'Select all')
   .parse(process.argv);
 
 
@@ -24,7 +25,8 @@ const cmdOpts = {
   port: program.port,
   host: program.host,
   dest: program.dest || options.dest,
-  output: program.output || 'rules.json'
+  output: program.output || 'rules.json',
+  all: program.all
 };
 
 if (cmd === 'serve') {
@@ -43,6 +45,34 @@ if (cmd === 'serve') {
     console.error('Extraction error:', err);
     process.exit(1);
   }
+} else if (cmd === 'deploy') {
+  deploy(options, cmdOpts.all)
+    .then(results => {
+      const resolved = results.filter(result => result.resolved);
+      const notResolved = results.filter(result => !result.resolved);
+
+      console.log('\n\n Deployment done.');
+      console.log(' ------------------');
+      if (resolved.length) {
+        resolved.forEach(deploy => {
+          console.log(` ${deploy.result.rule.dest} - ${deploy.result.rule.pathname} was saccessfully done!`);
+          console.log(` Output: ${deploy.result.stdout}`);
+          console.log(' ------------------');
+        });
+      }
+
+      if (notResolved.length) {
+        notResolved.forEach(deploy => {
+          console.log(` ${deploy.reason.rule.dest} - ${deploy.reason.rule.pathname} was done with error!`);
+          console.log(` Error: ${deploy.reason.err}`);
+          console.log(` Stderr: ${deploy.reason.stderr}`);
+          console.log(' ------------------');
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+    });
 } else {
   console.error('Unknown comand');
   process.exit(1);
