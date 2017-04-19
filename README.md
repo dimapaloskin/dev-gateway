@@ -53,7 +53,7 @@ The next step is to add a new script to your `package.json`:
 ```json
 {
   "scripts": {
-    "dev": "dev-gateway"
+    "dev": "dev-gateway serve app.js"
   }
 }
 ```
