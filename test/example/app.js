@@ -5,7 +5,7 @@ module.exports = {
     dest: 'auth.api.localhost',
     run: 'micro index.js',
     cwd: './auth',
-    deploy: 'now',
+    deploy: 'now --env SECRET_TOKEN=kittens_now',
     env: {
       SECRET_TOKEN: 'kittens'
     },
