@@ -3,7 +3,7 @@ import sleep from 'async-sleep';
 import rq from 'request-promise';
 import getPort from 'get-port';
 import fixtures from './example/fixtures';
-import devGateway from './../';
+import { devGateway } from './../';
 import app from './example/app';
 
 const options = Object.assign({
@@ -81,7 +81,7 @@ test('should match rule by hostname', async t => {
     url,
     json: true,
     headers: {
-      host: `accounts.api.local.dev:${port}`
+      host: `accounts.api.localhost:${port}`
     }
   });
 

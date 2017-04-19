@@ -77,12 +77,25 @@ Rules access the following parametres:
 
 ## Cli
 
+Run:
+
 ```shell
-dev-gateway app.js -p 3000 -h localhost
+dev-gateway serve app.js -p 3000 -h localhost
 ```
 
 - `-p, --port` - port
 - `-h, --host` - host
+
+Extract:
+
+```shell
+dev-gateway extract app.js --dest example.com --output rules.json
+```
+
+Will extract current configuration to `rules.json` file
+
+- `-d, --dest` - destination
+- `-o, --output` - output file with rules
 
 ## In action
 Clone this repo and run:
