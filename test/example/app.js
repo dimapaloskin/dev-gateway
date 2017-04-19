@@ -3,7 +3,8 @@ module.exports = {
   rules: [{
     pathname: '/api/auth/**',
     dest: 'auth.api.localhost',
-    run: 'cd ./auth && micro index.js',
+    run: 'micro index.js',
+    cwd: './auth',
     env: {
       SECRET_TOKEN: 'kittens'
     },
