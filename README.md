@@ -24,7 +24,8 @@ module.exports = {
   rules: [{
     pathname: '/api/auth/**',
     dest: 'auth.api.localhost',
-    run: 'cd ./auth && micro index.js',
+    run: 'micro index.js',
+    cwd: './auth',
     env: {
       SECRET_TOKEN: 'kittens'
     },
@@ -74,6 +75,7 @@ Rules access the following parametres:
 - **debug** - boolean or object (`{ stdout: false, stderr: true}`). Gateway will pipe microservice output to the terminal, if 'debug' is true.
 - **env** - the parameter is used to define environment variables for a microservice.
 - **logFile** - will pipe stdout and stderr to a specified file.
+- **cwd** - rule's working directory
 
 ## Cli
 

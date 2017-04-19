@@ -1,6 +1,6 @@
 {
   "name": "dev-gateway",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Local development cluster with now path aliases syntax support. Allows running multiple microservices as one solid server.",
   "main": "index.js",
   "bin": "bin/dev-gateway",
