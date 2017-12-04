@@ -8,7 +8,7 @@
     "lint": "xo",
     "ava": "ava -v test/*.test.js",
     "test": "xo && ava -v test/*test.js ",
-    "example": "cd test/example && ./../../bin/dev-gateway app.js -p 3002"
+    "example": "cd test/example && ./../../bin/dev-gateway app.js -p 5000"
   },
   "file": [
     "bin",
