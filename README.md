@@ -68,6 +68,7 @@ npm run dev
 ## Rules
 
 Rules access the following parametres:
+- **slug** - slug, just a name of rule
 - **pathname** - pathname alias; has similar wildcard syntax to this one [now path aliases](https://zeit.co/docs/features/path-aliases)
 - **dest** - destination host. Microservice will be available if you send request directly to the host.
 - **method** - string or array. To specify allowed methods.
@@ -92,6 +93,8 @@ dev-gateway serve app.js -p 3000 -h localhost
 
 - `-p, --port` - port
 - `-h, --host` - host
+- `-S, --skip` - skip whole rule by slug
+- `-s, --skip-run` - skip running stage by slug (it can be useful if you want run microservice manually, but you still needed requests proxying)
 
 **Extract:**
 
