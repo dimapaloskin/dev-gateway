@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const { resolve } = require('path');
 const { writeFileSync } = require('fs');
 const program = require('commander');
@@ -12,24 +13,39 @@ program
   .option('-h, --host <host>', 'Host to listen on (localhost)')
   .option('-d, --dest <main destination>', 'Domain name for extracted rules')
   .option('-o, --output <output rules file>', 'Output file with extracted rules')
+  .option('-S, --skip <slugs>', 'Skip rule by slug')
+  .option('-s, --skip-run <slug>', 'Skip rule run comand by slug')
   .parse(process.argv);
 
 
 const file = resolve(process.cwd(), program.args[1] || program.args[0] || 'app.js');
 const cmd = program.args.length === 1 ? 'serve' : program.args[0];
 
+
 const options = cloneDeep(require(file));
+
+const parseSkipOption = skip => {
+  if (!skip) {
+    return [];
+  }
+
+  return skip.split(',');
+}
 
 const cmdOpts = {
   port: program.port,
   host: program.host,
   dest: program.dest || options.dest,
+  skip: parseSkipOption(program.skip),
+  skipRun: parseSkipOption(program.skipRun),
   output: program.output || 'rules.json'
 };
 
 if (cmd === 'serve') {
   options.port = cmdOpts.port || options.port || 3000;
   options.host = cmdOpts.host || options.host || 'localhost';
+  options.skip = cmdOpts.skip;
+  options.skipRun = cmdOpts.skipRun;
 
   devGateway(options);
 } else if (cmd === 'extract') {
