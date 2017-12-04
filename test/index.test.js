@@ -1,5 +1,4 @@
 import test from 'ava';
-import sleep from 'async-sleep';
 import rq from 'request-promise';
 import getPort from 'get-port';
 import fixtures from './example/fixtures';
@@ -22,8 +21,7 @@ test.before(async () => {
   port = await getPort();
   options.port = port;
   gateway = devGateway(options);
-  // Wait while gateway running
-  await sleep(3000);
+  await gateway.result;
 });
 
 test.after.always(async () => {

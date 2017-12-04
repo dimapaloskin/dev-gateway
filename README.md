@@ -78,6 +78,7 @@ Rules access the following parametres:
 - **cwd** - rule's working directory
 - **maxGetPortAttempts** - number of attempts to obtain a rule's port. Each attempt waits for 1 second. E.g. set
 `maxGetPortAttempts` to 30 to wait for 30 seconds before a rule is marked as "not available". Defaults to 10.
+- **startTimeout** - timeout (in ms) before start port checking (useful for long starting apps)
 
 ## Cli
 

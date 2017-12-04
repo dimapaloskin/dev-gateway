@@ -8,6 +8,7 @@ module.exports = {
     env: {
       SECRET_TOKEN: 'kittens'
     },
+    startTimeout: 3000,
     debug: true
   }, {
     pathname: '/api/accounts',
