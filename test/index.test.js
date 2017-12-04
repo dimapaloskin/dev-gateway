@@ -7,7 +7,9 @@ import app from './example/app';
 
 const options = Object.assign({
   cwd: process.cwd() + '/test/example',
-  host: 'localhost'
+  host: 'localhost',
+  skip: ['bad-proxy'],
+  skipRun: ['bad-run']
 }, app);
 
 options.rules = options.rules.map(rule => {
@@ -17,16 +19,35 @@ options.rules = options.rules.map(rule => {
 
 let gateway;
 let port;
+let rules;
 test.before(async () => {
   port = await getPort();
   options.port = port;
   gateway = devGateway(options);
-  await gateway.result;
+  rules = await gateway.result;
 });
 
 test.after.always(async () => {
   await gateway.killChilds({ exitParent: false });
 });
+
+test('should skip rule', t => {
+  const skipedRule = rules.find(rule => {
+    return rule.result.slug === 'bad-proxy';
+  });
+
+  t.is(skipedRule, undefined);
+  t.is(rules.length, 6);
+})
+
+test('should skip run for rule', t => {
+  const badRunRule = rules.find(rule => {
+    return rule.result.slug === 'bad-run';
+  });
+
+  t.is(badRunRule.result.slug, 'bad-run');
+  t.is(badRunRule.result.proc, undefined);
+})
 
 test('should match double asterisk wildcard and use passed environment variable', async t => {
   const url = `http://localhost:${port}/api/auth/me/please/_`;

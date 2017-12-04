@@ -22,6 +22,7 @@ module.exports = {
   port: 3000,
   host: 'localhost',
   rules: [{
+    slug: 'auth',
     pathname: '/api/auth/**',
     dest: 'auth.api.localhost',
     run: 'micro index.js',
@@ -31,6 +32,7 @@ module.exports = {
     },
     debug: true
   }, {
+    slug: 'accounts',
     pathname: '/api/accounts',
     dest: 'accounts.api.localhost',
     method: ['GET', 'POST'],
