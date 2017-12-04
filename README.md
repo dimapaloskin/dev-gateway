@@ -94,7 +94,7 @@ dev-gateway serve app.js -p 3000 -h localhost
 - `-p, --port` - port
 - `-h, --host` - host
 - `-S, --skip` - skip whole rule by slug
-- `-s, --skip-run` - skip running stage by slug (it can be useful if you want run microservice manually, but you still needed requests proxying)
+- `-s, --skip-run` - skip running stage by slug (it can be useful if you want to run microservice manually, but you still needed requests proxying)
 
 **Extract:**
 
