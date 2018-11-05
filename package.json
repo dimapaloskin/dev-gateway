@@ -37,7 +37,7 @@
     "lodash.compact": "^3.0.1",
     "lodash.flatten": "^4.4.0",
     "ps-tree": "^1.1.0",
-    "tree-kill": "^1.1.0",
+    "tree-kill": "1.2.0",
     "wildcard-match": "^1.0.0"
   },
   "xo": {
