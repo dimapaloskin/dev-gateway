@@ -31,7 +31,7 @@
     "async-sleep": "^0.1.0",
     "async-to-gen": "^1.3.2",
     "commander": "^2.10.0",
-    "http-proxy": "^1.16.2",
+    "http-proxy": "^1.18.0",
     "listen-port": "^1.0.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.compact": "^3.0.1",
