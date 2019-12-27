@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "eslint-config-prettier": "^2.0.0",
+    "eslint-config-prettier": "^6.9.0",
     "get-port": "^3.0.0",
     "micro": "^9.0.2",
     "request": "^2.81.0",
