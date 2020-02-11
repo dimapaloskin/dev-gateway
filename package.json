@@ -57,7 +57,7 @@
     "eslint-config-prettier": "^2.0.0",
     "get-port": "^3.0.0",
     "micro": "^9.0.2",
-    "request": "^2.81.0",
+    "request": "2.88.0",
     "request-promise": "^4.2.0",
     "xo": "^0.18.1"
   }
